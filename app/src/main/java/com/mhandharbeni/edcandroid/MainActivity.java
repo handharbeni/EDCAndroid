@@ -71,17 +71,34 @@ public class MainActivity extends AppCompatActivity implements CustomKeyboard.Ke
 
     @Override
     public void onSamCheck() {
-
     }
 
     @Override
     public void onToggleSam() {
-
+        String message = "SAM Activated";
+        if (!CustomKeyboard.defaulSamState){
+            message = "SAM Deactivated";
+        }
+        Sneaker.with(this)
+                .autoHide(true)
+                .setDuration(3000)
+                .setTitle("SAM Operation")
+                .setMessage(message)
+                .sneakSuccess();
     }
 
     @Override
     public void onToggleNfc() {
-
+        String message = "NFC Activated";
+        if (!CustomKeyboard.defaultNfcState){
+            message = "NFC Deactivated";
+        }
+        Sneaker.with(this)
+                .autoHide(true)
+                .setDuration(3000)
+                .setTitle("NFC Operation")
+                .setMessage(message)
+                .sneakSuccess();
     }
 
     @Override

@@ -6,6 +6,8 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -16,11 +18,16 @@ import androidx.appcompat.widget.AppCompatEditText;
 
 import com.mhandharbeni.edcandroid.constant.KeyboardConstants;
 
+import java.util.Arrays;
+
 public class CustomKeyboard {
     private final String TAG = CustomKeyboard.class.getSimpleName();
     private KeyboardView mKeyboardView;
     private Activity mHostActivity;
     private KeyboardInterface keyboardInterface;
+
+    public static boolean defaulSamState = false;
+    public static boolean defaultNfcState = false;
 
     public CustomKeyboard(Activity host, int viewId, int layoutId, final KeyboardInterface keyboardInterface) {
         this.mHostActivity = host;
@@ -53,6 +60,12 @@ public class CustomKeyboard {
                     keyboardInterface.onPay();
                 } else if(primaryCode == KeyboardConstants.codeCheckSaldo){
                     keyboardInterface.onCheckBalance();
+                } else if(primaryCode == KeyboardConstants.codeToggleNFC){
+                    defaultNfcState = !defaultNfcState;
+                    keyboardInterface.onToggleNfc();
+                } else if(primaryCode == KeyboardConstants.codeToggleSam){
+                    defaulSamState = !defaulSamState;
+                    keyboardInterface.onToggleSam();
                 } else {
                     editable.insert(start, Character.toString((char) primaryCode));
                 }
