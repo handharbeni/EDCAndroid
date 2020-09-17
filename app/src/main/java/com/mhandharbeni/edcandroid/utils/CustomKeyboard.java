@@ -43,8 +43,16 @@ public class CustomKeyboard {
                 int start = edittext.getSelectionStart();
                 if (primaryCode == KeyboardConstants.codeBackSpace) {
                     if (editable != null && start > 0) editable.delete(start - 1, start);
-                } else if(primaryCode == KeyboardConstants.codeClear){
-                    keyboardInterface.onDone();
+                } else if(primaryCode == KeyboardConstants.codeClear) {
+                    if (editable != null) editable.clear();
+                } else if(primaryCode == KeyboardConstants.codeCheckNfc){
+                    keyboardInterface.onNfcCheck();
+                } else if(primaryCode == KeyboardConstants.codeCheckSam){
+                    keyboardInterface.onSamCheck();
+                } else if(primaryCode == KeyboardConstants.codePay){
+                    keyboardInterface.onPay();
+                } else if(primaryCode == KeyboardConstants.codeCheckSaldo){
+                    keyboardInterface.onCheckBalance();
                 } else {
                     editable.insert(start, Character.toString((char) primaryCode));
                 }
@@ -123,5 +131,11 @@ public class CustomKeyboard {
 
     public interface KeyboardInterface{
         void onDone();
+        void onPay();
+        void onCheckBalance();
+        void onNfcCheck();
+        void onSamCheck();
+        void onToggleSam();
+        void onToggleNfc();
     }
 }

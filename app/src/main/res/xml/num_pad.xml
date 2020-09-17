@@ -13,8 +13,11 @@
             android:keyLabel="8" />
         <Key
             android:codes="57"
-            android:keyEdgeFlags="right"
             android:keyLabel="9" />
+        <Key
+            android:codes="30001"
+            android:keyEdgeFlags="right"
+            android:keyLabel="NFC Check" />
     </Row>
     <Row>
         <Key
@@ -26,8 +29,11 @@
             android:keyLabel="5" />
         <Key
             android:codes="54"
-            android:keyEdgeFlags="right"
             android:keyLabel="6" />
+        <Key
+            android:codes="30002"
+            android:keyEdgeFlags="right"
+            android:keyLabel="SAM Check" />
     </Row>
     <Row>
         <Key
@@ -39,8 +45,12 @@
             android:keyLabel="2" />
         <Key
             android:codes="51"
-            android:keyEdgeFlags="right"
             android:keyLabel="3" />
+        <Key
+            android:isSticky="true"
+            android:codes="30003"
+            android:keyEdgeFlags="right"
+            android:keyLabel="Toggle SAM" />
     </Row>
     <Row>
         <Key
@@ -49,10 +59,25 @@
             android:keyLabel="0" />
         <Key
             android:codes="-5"
+            android:isRepeatable="true"
             android:keyLabel="DELETE"/>
         <Key
             android:codes="-3"
             android:keyLabel="CLEAR" />
-
+        <Key
+            android:isSticky="true"
+            android:codes="30004"
+            android:keyEdgeFlags="right"
+            android:keyLabel="Toggle NFC" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="50001"
+            android:keyEdgeFlags="left"
+            android:keyLabel="PAY"/>
+        <Key
+            android:codes="50002"
+            android:keyEdgeFlags="right"
+            android:keyLabel="CHECK BALANCE"/>
     </Row>
 </Keyboard>

@@ -4,9 +4,32 @@
     android:layout_height="match_parent">
 
     <EditText
+        android:enabled="false"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAlignment="textEnd"
+        android:layout_marginBottom="20dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:id="@+id/amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/amountHide"
+        android:inputType="text" />
+    <EditText
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:focusedByDefault="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAlignment="textEnd"
+        android:layout_marginBottom="20dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:id="@+id/amountHide"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/keyboardview"
         android:inputType="text" />
